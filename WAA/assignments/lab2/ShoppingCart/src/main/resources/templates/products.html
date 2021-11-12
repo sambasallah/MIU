@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"><title>Cars</title>
+</head>
+
+<body>
+    <div id="header">
+        <h2>List of products</h2>
+    </div>
+    <table class="datatable" border="1">
+        <tr>
+            <th>Product Number</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="prod : ${productList}">
+            <td th:text="${prod.getNumber()}">number</td>
+            <td th:text="${prod.getName()}">name</td>
+            <td th:text="${prod.getPrice()}">price</td>
+            <td>
+                <form action="removeproduct" method="post">
+                    <button type="submit" name="number" th:value="${prod.getNumber()}">Remove product</button>
+                </form>
+            </td>
+
+            <td>
+                <form action="addProductCart" method="post">
+                    <button type="submit" name="number" th:value="${prod.getNumber()}">Add to cart</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <form action="addProduct" method="post">
+        <button type="submit">Add product</button>
+    </form>
+</body>
+</html>

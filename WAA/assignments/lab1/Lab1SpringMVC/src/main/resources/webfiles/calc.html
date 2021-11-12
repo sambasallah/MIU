@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calc</title>
+</head>
+<body>
+
+
+<p th:if="${error}" th:style="${'color: red;'}" th:text="'Error: ' + ${error} " />
+
+<div th:unless="${error}">
+<p th:text="'Number 1 = ' + ${number1} " />
+<p th:text="'Operator =  ' + ${op} " />
+<p th:text="'Number 2 = ' + ${number2} " />
+<p th:text="'Result = ' + ${result} " />
+</div>
+
+</body>
+</html>
